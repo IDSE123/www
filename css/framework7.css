@@ -1083,7 +1083,7 @@ html.ios-gt-8 .navbar .center {
   margin-left: 10px;
 }
 .navbar .right:first-child {
-  position: absolute;
+  /* position: absolute; */
   right: 8px;
   height: 100%;
 }
