@@ -7,26 +7,42 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
-<title>CyberInterns App12345678</title>
+<title>CyberInterns</title>
 <link rel="stylesheet" href="css/framework7.css">
 <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slider/index.css">
+        <script src="slider/dist/slideout.min.js"></script>
+        <script>
+            var slideout = new Slideout({
+                                        'panel': document.getElementById('panel'),
+                                        'menu': document.getElementById('menu'),
+                                        'padding': 256,
+                                        'tolerance': 70
+                                        });
+                                        document.querySelector('.toggle-button').addEventListener('click', function() {
+                                                                                                  slideout.toggle();
+                                                                                                  });
+            </script>
+        
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 </head>
 <body id="mobile_wrap">
 
 
+<div class="statusbar-overlay"></div>
 
     <div class="panel panel-left panel-cover">
               <nav class="list-nav">
                 <ul>
                   <li class="home-icon"><a href="index.html" class="close-panel">Home</a></li>
-                  <li class="about-icon"><a href="about.html" class="close-panel">About</a></li>
+                  <li class="external about-icon"><a href="slider_test.html" class="close-panel">About</a></li>
                   <li class="features-icon"><a href="features.html" class="close-panel">Features</a></li>
                   <li class="photos-icon"><a href="photos.html" class="close-panel">Gallery</a></li>
                   <li class="video-icon"><a href="videos.html" class="close-panel">Videos</a></li>
                   <li class="blog-icon"><a href="blog.html" class="close-panel">Blog</a></li>
                   <li class="contact-icon"><a href="contact.html" class="close-panel">Contact</a></li>
+                   <li class="contact-icon"><a href="slider/test/index.html" class="close-panel">Slider Test</a></li>
                 </ul>
               </nav>  
     </div>
@@ -37,7 +53,7 @@
         <p>Edit your own account settings</p>
               <nav class="list-nav-small">
                 <ul>
-                  <li class="about-icon"><a href="about.html" class="close-panel">My Profile</a></li>
+                  <li class="about-icon"><a href="slider_test.html" class="close-panel">My Profile</a></li>
                   <li class="tools-icon"><a href="features.html" class="close-panel">Settings</a></li>
                   <li class="lock-icon"><a href="features.html" class="close-panel">Account</a></li>
                   <li class="envelope-icon"><a href="features.html" class="close-panel">Messages</a></li>
@@ -49,7 +65,7 @@
       </div>
     </div>
 
-    <div class="views">
+    <div id="menu" class="views">
 
       <div class="view view-main">
 
@@ -57,7 +73,7 @@
           <div class="navbar-inner">
           
             
-             <div class="right menu_open_icon"><a href="#" data-panel="left" class="link icon-only open-panel"></a></div>
+             <div id="panel" class="right menu_open_icon"><a href="#" data-panel="left" class="link icon-only open-panel"></a></div>
             
            
           </div>
@@ -75,7 +91,7 @@
                     <div class="swiper-wrapper">
                     
                       <div class="swiper-slide">
-                          <span>THE <br /> CyberIntern</span>
+                          <span> CyberIntern</span>
                           <span class="subtitle">Your partner for your bright future</span>
                           <a href="about.html" class="swiper_read_more">Sign In</a>    
                           <br />

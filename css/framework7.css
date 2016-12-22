@@ -4678,7 +4678,7 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-  background: #f7f7f8;
+    background: #2b4d50;
   z-index: 10000;
   position: absolute;
   left: 0;
