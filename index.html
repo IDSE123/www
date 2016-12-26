@@ -10,81 +10,14 @@
 <title>CyberInterns</title>
 <link rel="stylesheet" href="css/framework7.css">
 <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="slider/index.css">
-        <script src="slider/dist/slideout.min.js"></script>
-        <script>
-            var slideout = new Slideout({
-                                        'panel': document.getElementById('panel'),
-                                        'menu': document.getElementById('menu'),
-                                        'padding': 256,
-                                        'tolerance': 70
-                                        });
-                                        document.querySelector('.toggle-button').addEventListener('click', function() {
-                                                                                                  slideout.toggle();
-                                                                                                  });
-            </script>
+   
         
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900 ' rel='stylesheet' type='text/css'>
 </head>
 <body id="mobile_wrap">
 
-<script>
-    function hell(){
-    
-    alert("say Hello!!");
-    
-    }
-    
-    function getUserData() {
-        FB.api('/me', function(response) {
-               document.getElementById('response').innerHTML = 'Hello ' + response.name;
-               });
-    }
 
-window.fbAsyncInit = function() {
-    //SDK loaded, initialize it
-    FB.init({
-            appId      : '148348825651143',
-            xfbml      : true,
-            version    : 'v2.8'
-            });
-            
-            //check user session and refresh it
-            FB.getLoginStatus(function(response) {
-                              if (response.status === 'connected') {
-                              //user is authorized
-                              document.getElementById('loginBtn').style.display = 'none';
-                              getUserData();
-                              } else {
-                              //user is not authorized
-                              }
-                              });
-};
-
-//load the JavaScript SDK
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.com/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
- 
- //add event listener to login button
- document.getElementById('loginBtn').addEventListener('click', function() {
-                                                      alert("Hello");
-                                                      //do the login
-                                                      FB.login(function(response) {
-                                                               if (response.authResponse) {
-                                                               //user just authorized your app
-                                                               document.getElementById('loginBtn').style.display = 'none';
-                                                               getUserData();
-                                                               }
-                                                               }, {scope: 'email,public_profile', return_scopes: true});
-                                                      }, false);
-    
-    </script>
 
 <div class="statusbar-overlay"></div>
 
@@ -135,7 +68,7 @@ window.fbAsyncInit = function() {
           </div>
         </div>
 
-        <div class="pages navbar-through toolbar-through">
+        <div class="pages">
 
          
          
@@ -149,14 +82,14 @@ window.fbAsyncInit = function() {
                       <div class="swiper-slide">
                           <span> CyberIntern</span>
                           <span class="subtitle">Your partner for your bright future</span>
-                          <a href="about.html" class="swiper_read_more">Sign In</a>    
+                          <a href="about.html" class="close-panel swiper_read_more">Sign In</a>
                           <br />
                            <a href="about.html" class="swiper_read_more">Sign Up</a>
                            <br />
                            <a class="swiper_read_more">Login with Facebook</a>
+                           <div id="status"></div>
                            <br />
-                           <button id="loginBtn">Facebook Login</button><br>
-                           <a class="swiper_read_more" onclick="hell()">Login with Google</a>
+                           <a class="swiper_read_more">Login with Google</a>
                           
                           
                           <div id="response"></div>
@@ -167,17 +100,7 @@ window.fbAsyncInit = function() {
             </div>
           </div>
         </div>
-        <!-- Bottom Toolbar-->
-        <div class="toolbar">
-              <div class="toolbar-inner">
-              <ul class="toolbar_icons icons_4row">
-              <li><a href="#" data-popup=".popup-login" class="open-popup"><img src="images/icons/white/user.png" alt="" title="" /></a></li>
-              <li><a href="features.html"><img src="images/icons/white/settings.png" alt="" title="" /></a></li>
-              <li><a href="photos.html"><img src="images/icons/white/photos.png" alt="" title="" /></a></li>
-              <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="images/icons/white/heart.png" alt="" title="" /></a></li>
-              </ul>
-              </div>  
-        </div>
+       
         
 
       </div>
