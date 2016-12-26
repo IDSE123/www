@@ -244,7 +244,7 @@
             view.pagesCache = {};
         
             // Store View in element for easy access
-            container[0].f7View = view;
+           container[0].f7View = view;
         
             // Pages
             view.pagesContainer = container.find('.pages')[0];
