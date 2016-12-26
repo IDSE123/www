@@ -120,13 +120,14 @@
                  url: "https://kportals.com/cyberIntern/app/signin.php",
                  data: {name: un, pwd: pas},
                  success: function(html){
-                 if(html=='true')    {
+                 if(html== 1)    {
                  
                  //window.location="dashboard.php";
-                 alert("You have successfully logged in.")
+                 alert("You have successfully logged in.");
+                 window.location="photos.html";
                  }
                  else    {
-                 alert("The entered information is incorrect.");
+                 alert(html);
                  }
                  }
                  });
@@ -144,7 +145,7 @@
             <input type="text" name="username" value="" class="form_input required" id="username"/>
             <label>Password:</label>
             <input type="password" name="password" value="" class="form_input required" id="password"/>
-            <input type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/>
+            <input type="button" name="submit" class="form_submit close-popup" id="submit" value="Login" onclick="signIn()"/>
             </form>
             <div
                 class="fb-like"
