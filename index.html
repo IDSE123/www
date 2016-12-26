@@ -14,6 +14,7 @@
         
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900 ' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body id="mobile_wrap">
 
@@ -82,7 +83,9 @@
                       <div class="swiper-slide">
                           <span> CyberIntern</span>
                           <span class="subtitle">Your partner for your bright future</span>
-                          <a href="about.html" class="close-panel swiper_read_more">Sign In</a>
+<!--                          <a href="about.html" class="close-panel swiper_read_more">Sign In</a>-->
+<!--                          <br />-->
+                          <a href="#" data-popup=".popup-login" class="open-popup close-panel swiper_read_more">Sign In</a>
                           <br />
                            <a href="about.html" class="swiper_read_more">Sign Up</a>
                            <br />
@@ -105,7 +108,32 @@
 
       </div>
     </div>
-    
+  <script>
+      
+      function signIn(){
+          var un = $("#username").val();
+          var pas = $("#password").val();
+          alert("usrname is: "+un+" pass is: "+pas);
+          
+          $.ajax({
+                 type: "POST",
+                 url: "https://kportals.com/cyberIntern/app/signin.php",
+                 data: {name: un, pwd: pas},
+                 success: function(html){
+                 if(html=='true')    {
+                 
+                 //window.location="dashboard.php";
+                 alert("You have successfully logged in.")
+                 }
+                 else    {
+                 alert("The entered information is incorrect.");
+                 }
+                 }
+                 });
+          
+      }
+      
+  </script>
     <!-- About Popup -->
     <div class="popup popup-login">
     <div class="content-block">
@@ -113,10 +141,10 @@
             <div class="loginform">
             <form id="LoginForm" method="post">
             <label>Username:</label>
-            <input type="text" name="Username" value="" class="form_input required" />
+            <input type="text" name="username" value="" class="form_input required" id="username"/>
             <label>Password:</label>
-            <input type="password" name="Password" value="" class="form_input required" />
-            <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
+            <input type="password" name="password" value="" class="form_input required" id="password"/>
+            <input type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/>
             </form>
             <div
                 class="fb-like"
@@ -154,4 +182,3 @@
 <script type="text/javascript" src="js/email.js"></script>
   </body>
 </html>
-/*    somethinggggg  */
