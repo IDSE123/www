@@ -9,13 +9,7 @@
 <script type="text/javascript" src="js/jquery.swipebox.js"></script>
 <script type="text/javascript" src="js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="js/email.js"></script>
-        <script>
-            //$(function() {
-              //alert("get that thing");
-              //alert(localStorage.getItem("username"));
-              //});
-              
-            </script>
+        
         <div class="pages">
             <div data-page="projects" class="page no-navbar">
                 <div class="page-content">
@@ -30,11 +24,11 @@
                         
                         
                         <div class="list-block">
-                            <ul class="posts">
+                            <ul class="posts" id="internList">
                                 
                                 
                                 <!-- This <li> should be repeated -->
-                                <li class="swipeout">
+                                <li class="swipeout" id="jobD">
                                     <div class="swipeout-content item-content">
                                         <div class="post_entry">
                                             <div class="post_thumb"><img src="images/photos/photo8.jpg" alt="" title="" /></div>
@@ -146,7 +140,7 @@
                                 </li>
                             </ul>
                             
-                            <div onclick="sh()">Load more Internships</div>
+                            <div id="loadMore" onclick="sh()">Load more Internships</div>
                             <div id="showLess">No more posts</div> 
                         </div>
                         
