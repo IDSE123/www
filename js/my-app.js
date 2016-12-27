@@ -61,7 +61,6 @@ $$(document).on('pageInit', function (e) {
 			// and in the process of switching views!
 
   			if(theid == "view13") {
-                         alert(theid);
 				$(this).addClass("active");
 				$("#view11").removeClass("active");
 				$("#view11").children("img").attr("src","images/switch_11.png");
@@ -80,7 +79,6 @@ $$(document).on('pageInit', function (e) {
 			}
 			
 			else if(theid == "view12") {
-                         alert(theid);
 				$(this).addClass("active");
 				$("#view11").removeClass("active");
 				$("#view11").children("img").attr("src","images/switch_11.png");
@@ -98,7 +96,6 @@ $$(document).on('pageInit', function (e) {
 
 			} 
 			else if(theid == "view11") {
-                         alert(theid);
 				$("#view12").removeClass("active");
 				$("#view12").children("img").attr("src","images/switch_12.png");
 				
@@ -155,9 +152,3 @@ $$(document).on('pageInit', function (e) {
 		
 		
 })
-
-function sh(){
-    alert("sayHello");
-    alert(localStorage.getItem("username"));
-    
-}
