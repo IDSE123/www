@@ -152,3 +152,9 @@ $$(document).on('pageInit', function (e) {
 		
 		
 })
+
+function sh(){
+    alert("sayHello");
+    alert(localStorage.getItem("username"));
+    
+}

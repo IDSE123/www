@@ -10,10 +10,11 @@
 <script type="text/javascript" src="js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="js/email.js"></script>
         <script>
-            $(function() {
-              var text = window.location.hash.substring(1);
-              alert("TEST:"+text);
-              });
+            //$(function() {
+              //alert("get that thing");
+              //alert(localStorage.getItem("username"));
+              //});
+              
             </script>
         <div class="pages">
             <div data-page="projects" class="page no-navbar">
@@ -21,7 +22,7 @@
                     
                     <div class="navbarpages">
                         <div class="navbar_home_link"><a href="index.html"><img src="images/icons/white/home.png" alt="" title="" /></a></div>
-                        <div class="navbar_page_center">Eligible Internships</div>
+                        <div class="navbar_page_center" id="ei">Eligible Internships</div>
                         <div class="menu_open_icon_white"><a href="#" class="open-panel"><img src="images/menu_open.png" alt="" title="" /></a></div>
                     </div>
                     
@@ -145,7 +146,7 @@
                                 </li>
                             </ul>
                             
-                            <div id="loadMore">Load more posts</div> 
+                            <div onclick="sh()">Load more Internships</div>
                             <div id="showLess">No more posts</div> 
                         </div>
                         

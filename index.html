@@ -108,10 +108,20 @@
     </div>
   <script>
       
+      $(function() {
+        alert("opened");
+        //loadSettings();
+    });
+     
+     function loadSettings(){
+     
+        alert("logged in as: "+localStorage.username);
+     
+     }
       function signIn(){
           var un = $("#username").val();
           var pas = $("#password").val();
-          alert("usrname is: "+un+" pass is: "+pas);
+          //alert("usrname is: "+un+" pass is: "+pas);
           
           $.ajax({
                  type: "POST",
@@ -122,16 +132,27 @@
                  
                  //window.location="dashboard.php";
                  alert("You have successfully logged in.");
-               //  window.location.assign("job_list.html"+"#"+un);
+                 ///////Local storage function saveSettings()////
+                 saveSettings(un,pas);
+               
                  }
                  else    {
-                 alert(html);
-                 }
+                    alert("The login information is incorrect.");
+                    window.location.assign("index.html");
+                    }
                  }
                  });
           //$("#sinBox").html="Sign Out";
           
       }
+  
+  function saveSettings(un,pas){
+      
+      localStorage.setItem("username", un);
+      localStorage.setItem("password", pas);
+      alert("user name: "+localStorage.getItem("username"));
+  
+  }
       
   </script>
     <!-- About Popup -->
