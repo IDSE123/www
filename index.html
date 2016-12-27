@@ -132,15 +132,12 @@
                  
                  //window.location="dashboard.php";
                  alert("You have successfully logged in.");
-<<<<<<< HEAD
-               window.location.assign("job_list.html"+"#"+un);
-=======
+
                  ///////Local storage function saveSettings()////
                  saveSettings(un,pas);
                  popInternlist();
                  //$("#jobD").html("");
                  //$("#jobD").html("<div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div>");
->>>>>>> origin/master
                  }
                  ///<li class=\"swipeout\" id=\"jobD\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>////
                  else    {
@@ -157,8 +154,9 @@
   $.getJSON("https://kportals.com/cyberIntern/app/dbJson.php", function(data){
             
             $.each(data, function(index, value){
+                   //alert(value[16]);
                    
-                   toAppend += "<li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">"+value.position+"</a></h2><p>"+value.description+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">"+value.company_id+"</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>";
+                   toAppend += "<li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">"+value.position+"</a></h2><p>"+value.description+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">"+value[17]+"</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>";
                    
                    });
             alert(toAppend);
@@ -192,7 +190,9 @@
                     <input type="text" name="username" value="" class="form_input required" id="username"/>
                     <label>Password:</label>
                     <input type="password" name="password" value="" class="form_input required" id="password"/>
+                    <a href="job_list.html">
                     <input  type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/>
+                    </a>
                 </form>
                 <div
                     class="fb-like"
