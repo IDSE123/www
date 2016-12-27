@@ -122,7 +122,7 @@
                  
                  //window.location="dashboard.php";
                  alert("You have successfully logged in.");
-               //  window.location.assign("job_list.html"+"#"+un);
+               window.location.assign("job_list.html"+"#"+un);
                  }
                  else    {
                  alert(html);
@@ -135,27 +135,37 @@
       
   </script>
     <!-- About Popup -->
-    <div class="popup popup-login">
-    <div class="content-block">
-      <h4>Login</h4>
+
+
+
+    
+    <div class="popup popup-login bg_login">
+        <div class="content-container">
+
+        <div class="content-block">
+            <h4>Login</h4>
             <div class="loginform">
-            <form id="LoginForm" method="post">
-            <label>Username:</label>
-            <input type="text" name="username" value="" class="form_input required" id="username"/>
-            <label>Password:</label>
-            <input type="password" name="password" value="" class="form_input required" id="password"/>
-        <a href="job_list.html">    <input  type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/> </a>
-            </form>
-            <div
-                class="fb-like"
-                data-share="true"
-                data-width="450"
-                data-show-faces="true">
+                <form id="LoginForm" method="post">
+                    <label>Username:</label>
+                    <input type="text" name="username" value="" class="form_input required" id="username"/>
+                    <label>Password:</label>
+                    <input type="password" name="password" value="" class="form_input required" id="password"/>
+                    <input  type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/>
+                </form>
+                <div
+                    class="fb-like"
+                    data-share="true"
+                    data-width="450"
+                    data-show-faces="true">
+                </div>
             </div>
-            </div>
-      <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
-    </div>
-    </div>
+            <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
+        </div>
+    </div>  
+    <div class="blur"> shjdfdsfaxax</div>
+</div>
+
+
     <!-- Services Popup -->
     <div class="popup popup-social">
     <div class="content-block">
