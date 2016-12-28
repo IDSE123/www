@@ -875,7 +875,7 @@ html.android .page-from-center-to-right:before {
 /* === Toolbars === */
 .navbar-inner,
 .toolbar-inner {
-background-color: #082a2c;
+background-color: #c51101;
   position: absolute;
   left: 0;
   top: 0;
@@ -4679,7 +4679,7 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-    background: #2b4d50;
+    background: #af0f01;
   z-index: 10000;
   position: absolute;
   left: 0;
