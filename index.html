@@ -158,7 +158,7 @@
             $.each(data, function(index, value){
                    //alert(value[16]);
                    
-                   toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"')\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
+                   toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"')\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
                    
                    });
             alert(toAppend);
@@ -175,15 +175,15 @@
   
   }
   
-  function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc){
+  function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD){
       //alert("Loading...");
       setTimeout(function() {
                  
-            intr(posi,comp,loc,imSrc,opCount,req,woexp,desc);
+            intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD);
                  }, 100);
   }
   
-  function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc){
+  function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD){
       $("#headBlk").html("");
       $("#headBlk").html(posi);
       $("#headBlk2").html("");
@@ -195,9 +195,11 @@
       $("#subHead").html("");
       $("#subHead").html(req);
       $("#subHead2").html("");
-      $("#subHead2").html(woexp);
+      $("#subHead2").html(woexp+" years");
       $("#subHead3").html("");
       $("#subHead3").html(opCount);
+      $("#salSub").html("");
+      $("#salSub").html(salD);
       document.getElementById("imgHolder").src= imSrc;
   }
       
