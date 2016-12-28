@@ -157,7 +157,12 @@ $$(document).on('pageInit', function (e) {
 })
 
 function sh(){
-    alert("sayHello");
+    //alert("sayHello");
     alert(localStorage.getItem("username"));
     
+}
+
+function IntDesc(comp){
+    alert("Devanshu is badass!! "+comp);
+    alert($("#headBlk").html());
 }
