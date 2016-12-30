@@ -190,21 +190,21 @@ function signIn(){
            url: "https://kportals.com/cyberIntern/app/signin.php",
            data: {name: un, pwd: pas},
            success: function(html){
-           if(html== 1)    {
+           if(html== 2)    {
+           alert("The login information is incorrect.");
+           window.location.assign("index.html");
            
-           //window.location="dashboard.php";
-           alert("You have successfully logged in.");
-           
-           ///////Local storage function saveSettings()////
-           saveSettings(un,pas);
-           popInternlist();
            //$("#jobD").html("");
            //$("#jobD").html("<div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div>");
            }
            ///<li class=\"swipeout\" id=\"jobD\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>////
            else    {
-           alert("The login information is incorrect.");
-           window.location.assign("index.html");
+           //window.location="dashboard.php";
+           alert("You have successfully logged in. ");
+           
+           ///////Local storage function saveSettings()////
+           saveSettings(un,pas,html);
+           popInternlist(html);
            }
            }
            });
@@ -214,23 +214,24 @@ function signIn(){
     
 }
 
-function saveSettings(un,pas){
+function saveSettings(un,pas,suid){
     
     localStorage.setItem("username", un);
     localStorage.setItem("password", pas);
+    localStorage.setItem("studentId", suid);
     //alert("user name: "+localStorage.getItem("username"));
     
 }
 
-function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD){
+function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId){
     //alert("Loading...");
     setTimeout(function() {
                
-               intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD);
+               intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId);
                }, 100);
 }
 
-function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD){
+function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId){
     $("#headBlk").html("");
     $("#headBlk").html(posi);
     $("#headBlk2").html("");
