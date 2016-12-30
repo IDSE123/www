@@ -29,7 +29,7 @@ $$(document).on('pageInit', function (e) {
 		});
 		
 
-		$(".posts li").hide();	
+/*		$(".posts li").hide();
 		size_li = $(".posts li").size();
 		x=3;
 		$('.posts li:lt('+x+')').show();
@@ -43,7 +43,7 @@ $$(document).on('pageInit', function (e) {
 		});
 
 
-		
+		*/
 	$("a.switcher").bind("click", function(e){
 		e.preventDefault();
 		

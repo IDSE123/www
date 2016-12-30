@@ -875,7 +875,7 @@ html.android .page-from-center-to-right:before {
 /* === Toolbars === */
 .navbar-inner,
 .toolbar-inner {
-background-color: #c51101;
+background-color: #082a2c;
   position: absolute;
   left: 0;
   top: 0;
@@ -2046,7 +2046,7 @@ html.pixel-ratio-3 .content-block-inner:after {
   right: auto;
   height: 1px;
   width: 100%;
-  background-color: #c8c7cc;
+ /*  background-color: #c8c7cc; */
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 0%;
@@ -4679,7 +4679,7 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-    background: #af0f01;
+    background: #2b4d50;
   z-index: 10000;
   position: absolute;
   left: 0;
