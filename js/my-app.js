@@ -21,12 +21,12 @@ $$(document).on('pageInit', function (e) {
   		$(".swipebox").swipebox();
 		$(".videocontainer").fitVids();
 		
-		$("#ContactForm").validate({
+	/* 	$("#ContactForm").validate({
 		submitHandler: function(form) {
 		ajaxContact(form);
 		return false;
 		}
-		});
+		}); 
 		
 
 /*		$(".posts li").hide();
