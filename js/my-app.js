@@ -223,15 +223,34 @@ function saveSettings(un,pas,suid){
     
 }
 
-function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId){
+function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
     //alert("Loading...");
     setTimeout(function() {
                
-               intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId);
+               intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId);
                }, 100);
 }
-
-function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId){
+var selJob = 0;
+var studId = 0;
+function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
+    
+    $.ajax
+    ({
+     url: "https://kportals.com/cyberIntern/app/check_list.php",
+     type : "POST",
+     data: {stu_id: stuId, job_id: jId},
+     success: function(response)
+     {
+     alert(response);
+     if(response == 1){
+     
+     document.getElementById("jList").disabled = true;
+     document.getElementById("jList").value = "Alresdy in List";
+     
+     }
+     }
+     });
+    
     $("#headBlk").html("");
     $("#headBlk").html(posi);
     $("#headBlk2").html("");
@@ -249,5 +268,24 @@ function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId){
     $("#salSub").html("");
     $("#salSub").html(salD);
     document.getElementById("imgHolder").src= imSrc;
+    selJob = jId;
+    studId = stuId;
 }
 
+
+function addList(){
+
+    //alert("Test List");
+    alert(selJob);
+    $.ajax
+    ({
+     url: "https://kportals.com/cyberIntern/app/update_list.php",
+     type : "POST",
+     data: {stu_id: studId, job_id: selJob},
+     success: function(response)
+     {
+     //alert(response);
+     }
+     });
+
+}
