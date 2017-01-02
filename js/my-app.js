@@ -132,7 +132,7 @@ onCardIOComplete: function(card) {
 app.initialize();
 
 //////////////////////////////////////////////////////////////
-
+checkLoginStart();
 // Initialize your app
 var myApp = new Framework7({
     animateNavBackIcon: true,
@@ -155,7 +155,7 @@ var mainView = myApp.addView('.view-main', {
 $$(document).on('pageInit', function (e) {
   		$(".swipebox").swipebox();
 		$(".videocontainer").fitVids();
-		
+                
 	/* 	$("#ContactForm").validate({
 		submitHandler: function(form) {
 		ajaxContact(form);
@@ -291,15 +291,58 @@ $$(document).on('pageInit', function (e) {
 		
 })
 
-function sh(){
+function checkLoginStart(){
     //alert("sayHello");
-    alert(localStorage.getItem("username"));
+    //alert(localStorage.getItem("studentId"));
+    var ca = localStorage.getItem("studentId");
+    if(ca != null){
+        
+        
+        popInternlist2(ca);
+        
+    
+    }
+}
+
+//var appe = "";
+function popInternlist2(stuId){
+    
+    var toAppend = "";
+    $.getJSON("https://kportals.com/cyberIntern/app/dbJson.php", function(data){
+              
+              $.each(data, function(index, value){
+                     //alert(value[16]);
+                     //////IntDesc: Internship Description.////////
+                     toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuId+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
+                     
+                     });
+              //alert(toAppend);
+              mainView.loadPage("job_list.html");
+              delayer(toAppend);
+              //alert("dimag kharab!!!");
+              $("#internList").html("");
+              $("#internList").html(toAppend);
+              
+              
+              //alert("dimag kharab!!!");
+              });
     
 }
 
-function IntDesc(comp){
-    alert("Devanshu is badass!! "+comp);
-    alert($("#headBlk").html());
+
+function delayer(listIt){
+
+    setTimeout(function() {
+               
+               listPopultor(listIt);
+               }, 100);
+}
+
+
+function listPopultor(listIt){
+    //alert("Devanshu is badass!! ");
+    $("#internList").html("");
+    $("#internList").html(listIt);
 }
 
 ////////js from index//////
