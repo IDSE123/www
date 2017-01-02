@@ -70,8 +70,8 @@ onCardIOComplete: function(card) {
     createPayment : function () {
         // for simplicity use predefined amount
         // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
-        var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-        var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale", paymentDetails);
+        var paymentDetails = new PayPalPaymentDetails("0.99", "0.00", "0.00");
+        var payment = new PayPalPayment("0.99", "USD", "Pro Subscription", "Sale", paymentDetails);
         return payment;
     },
     configuration : function () {
@@ -335,8 +335,14 @@ function signIn(){
            ///<li class=\"swipeout\" id=\"jobD\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>////
            else    {
            //window.location="dashboard.php";
-           alert("You have successfully logged in. ");
+           //alert("You have successfully logged in. ");
            
+           navigator.notification.alert(
+                'You are the winner!',  // message
+                 alertDismissed,         // callback
+                'Cyber Interns',            // title
+                'Ok'                  // buttonName
+                                        );
            ///////Local storage function saveSettings()////
            saveSettings(un,pas,html);
            popInternlist(html);
@@ -429,4 +435,11 @@ function gr(){
 
     app.initPaymentUI();
     
+}
+
+function alertDismissed() {
+    // do something
+    popup = '.popup.modal-in';
+    myApp.closeModal(popup);
+
 }
