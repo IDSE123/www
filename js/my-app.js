@@ -425,7 +425,7 @@ function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
      data: {stu_id: stuId, job_id: jId},
      success: function(response)
      {
-     alert(response);
+     //alert(response);
      if(response == 1){
      
      document.getElementById("jList").disabled = true;
