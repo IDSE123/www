@@ -141,7 +141,8 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
 	swipeBackPage: true,
 	pushState: true,
-    template7Pages: true
+    template7Pages: true,
+    swipePanel: 'left'
 });
 
 // Export selectors engine
@@ -381,7 +382,7 @@ function signIn(){
            //alert("You have successfully logged in. ");
            
            navigator.notification.alert(
-                'You are the winner!',  // message
+                'You are logged in!!',  // message
                  alertDismissed,         // callback
                 'Cyber Interns',            // title
                 'Ok'                  // buttonName
