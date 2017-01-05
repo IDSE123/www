@@ -1130,10 +1130,13 @@ font-size:20px;
 line-height:20px;
 } 
 a.swiper_read_more{
-color:#ffca2e;
-padding:10px 20px;
-margin:30px 0 0 0;
-font-size:14px;
+    color: #fcfaff;
+    padding: 10px 20px;
+    margin: 30px 0 0 0;
+    
+    font-size: 14px;
+    
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .navbarpages{
 height:50px;
