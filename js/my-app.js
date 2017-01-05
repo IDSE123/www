@@ -481,7 +481,9 @@ function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
 function addList(){
 
     //alert("Test List");
-    alert(selJob);
+    document.getElementById("jList").disabled = true;
+    document.getElementById("jList").value = "Added to your list";
+    //alert(selJob);
     $.ajax
     ({
      url: "https://kportals.com/cyberIntern/app/update_list.php",
@@ -542,7 +544,7 @@ function match_job(jobId){
               $.each(data, function(index, value){
                      //alert(value[16]);
                      //////IntDesc: Internship Description.////////
-                     for(var i=1; i<jobData.length; i++){
+                     for(var i=0; i<jobData.length; i++){
                      if(value.idjob == jobData[i]){
                      toAppender += "<a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
                      }
