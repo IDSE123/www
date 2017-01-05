@@ -349,10 +349,22 @@ function listPopultor(listIt){
 ////////js from index//////
 /////////DOM////////
 document.getElementById("loSubmit").addEventListener("click", signIn);
+
+document.getElementById("signOut").addEventListener("click", signOut);
+
 //$(function() {
 //alert("opened");
 //loadSettings();
 //});
+
+function signOut(){
+
+    localStorage.setItem("username", "");
+    localStorage.setItem("password", "");
+    localStorage.setItem("studentId", "");
+    alert(localStorage.getItem("studentId"));
+    
+}
 
 function loadSettings(){
     
@@ -370,6 +382,7 @@ function signIn(){
            data: {name: un, pwd: pas},
            success: function(html){
            if(html== 2)    {
+           alert(html);
            alert("The login information is incorrect.");
            window.location.assign("index.html");
            
@@ -380,7 +393,7 @@ function signIn(){
            else    {
            //window.location="dashboard.php";
            //alert("You have successfully logged in. ");
-           
+           alert(html);
            navigator.notification.alert(
                 'You are logged in!!',  // message
                  alertDismissed,         // callback
@@ -414,6 +427,13 @@ function IntDesc1(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
                
                intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId);
                }, 100);
+}
+function IntDesc2(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
+    //alert("Loading...");
+    //setTimeout(function() {
+               
+      //         intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId);
+        //       }, 100);
 }
 var selJob = 0;
 var studId = 0;
@@ -473,6 +493,67 @@ function addList(){
      }
      });
 
+}
+
+function createMyList(){
+
+    setTimeout(function() {
+               
+               MylistPopultor(localStorage.getItem("studentId"));
+               }, 100);
+    
+}
+
+
+function MylistPopultor(sId){
+
+    var x = Number(sId);
+    alert("student Id is:"+x);
+    $.ajax
+    ({
+     url: "https://kportals.com/cyberIntern/app/checkApply.php",
+     type : "POST",
+     data: {stu_id: x},
+     success: function(response)
+     {
+     if(response == 0){
+        alert(response);
+     } else {
+        alert("else: "+response);
+     match_job(response);
+     }
+     }
+     });
+    
+}
+
+function match_job(jobId){
+
+    var jobData = jobId.split("|");
+    //for(var i=1; i<jobData.length; i++){
+    
+      //  alert(jobData[i]);
+        
+   // }
+    var stuIds = localStorage.getItem("studentId");
+    var toAppender = "";
+    $.getJSON("https://kportals.com/cyberIntern/app/dbJson.php", function(data){
+              
+              $.each(data, function(index, value){
+                     //alert(value[16]);
+                     //////IntDesc: Internship Description.////////
+                     for(var i=1; i<jobData.length; i++){
+                     if(value.idjob == jobData[i]){
+                     toAppender += "<a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
+                     }
+                     }
+                     
+                     });
+              //alert(toAppend);
+              $("#internLister").html("");
+              $("#internLister").html(toAppender);
+              });
+    
 }
 
 function gr(){
