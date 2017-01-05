@@ -1261,3 +1261,9 @@ height:500px;
 
 
 }
+.no-bottom-border {
+
+border-bottom: none !important;
+    
+
+}

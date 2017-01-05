@@ -706,6 +706,7 @@ p {
   height: 100%;
   position: relative;
   z-index: 1;
+ /* background-color: #efeff4 */
 }
 .swipeback-page-shadow {
   position: absolute;
