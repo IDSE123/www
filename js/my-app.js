@@ -360,38 +360,28 @@ document.getElementById("signOut").addEventListener("click", signOut);
 
 function signUp(){
 
-    alert("signUp Test");
+    //alert("signUp Test");
     
-    var un = $("#username").val();
-    var pas = $("#password").val();
+    var fn = $("#fName").val();
+    var ln = $("#lName").val();
+    var gn = $("#gen").val();
+    var dofb = $("#dob").val();
+    var eM = $("#eMail").val();
+    var uN = $("#uName").val();
+    var sP = $("#sPass").val();
+    var csP = $("#csPass").val();
+    //alert(fn+""+ln+""+gn+""+dofb+""+eM+""+sP+""+csP+""+uN);
     //alert("usrname is: "+un+" pass is: "+pas);
     
     $.ajax({
            type: "POST",
            url: "https://kportals.com/cyberIntern/app/signup.php",
-           data: {name: un, pwd: pas},
+           data: {fname: fn, lname: ln, gen: gn, dob: dofb,eMail: eM, uName: uN, pass: sP, cpass: csP},
            success: function(html){
-           if(html== 2)    {
-           alert(html);
-           alert("The login information is incorrect.");
-           window.location.assign("index.html");
-           
-          
-           }
-           
-           else    {
-           //window.location="dashboard.php";
-           //alert("You have successfully logged in. ");
-           alert(html);
-           navigator.notification.alert(
-                                        'You are logged in!!',  // message
-                                        alertDismissed,         // callback
-                                        'Cyber Interns',            // title
-                                        'Ok'                  // buttonName
-                                        );
-           ///////Local storage function saveSettings()////
-           saveSettings(un,pas,html);
-           popInternlist(html);
+           //alert(html);
+           if(html==2){
+            alert("Successfully registered. Please login to continue.");
+            window.location.assign("login.html");
            }
            }
            });
