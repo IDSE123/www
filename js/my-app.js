@@ -352,13 +352,55 @@ document.getElementById("loSubmit").addEventListener("click", signIn);
 
 document.getElementById("signOut").addEventListener("click", signOut);
 
+
 //$(function() {
 //alert("opened");
 //loadSettings();
 //});
 
-function signOut(){
+function signUp(){
 
+    alert("signUp Test");
+    
+    var un = $("#username").val();
+    var pas = $("#password").val();
+    //alert("usrname is: "+un+" pass is: "+pas);
+    
+    $.ajax({
+           type: "POST",
+           url: "https://kportals.com/cyberIntern/app/signup.php",
+           data: {name: un, pwd: pas},
+           success: function(html){
+           if(html== 2)    {
+           alert(html);
+           alert("The login information is incorrect.");
+           window.location.assign("index.html");
+           
+          
+           }
+           
+           else    {
+           //window.location="dashboard.php";
+           //alert("You have successfully logged in. ");
+           alert(html);
+           navigator.notification.alert(
+                                        'You are logged in!!',  // message
+                                        alertDismissed,         // callback
+                                        'Cyber Interns',            // title
+                                        'Ok'                  // buttonName
+                                        );
+           ///////Local storage function saveSettings()////
+           saveSettings(un,pas,html);
+           popInternlist(html);
+           }
+           }
+           });
+    
+}
+
+
+function signOut(){
+    
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
     localStorage.setItem("studentId", "");
