@@ -424,7 +424,7 @@ function signIn(){
            data: {name: un, pwd: pas},
            success: function(html){
            if(html== 2)    {
-           alert(html);
+           //alert(html);
            alert("The login information is incorrect.");
            window.location.assign("index.html");
            
@@ -435,7 +435,7 @@ function signIn(){
            else    {
            //window.location="dashboard.php";
            //alert("You have successfully logged in. ");
-           alert(html);
+        //   alert(html);
            navigator.notification.alert(
                 'You are logged in!!',  // message
                  alertDismissed,         // callback

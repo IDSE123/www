@@ -83,7 +83,7 @@
                           <span class="subtitle">Your partner for your bright future</span> -->
 <!--                          <a href="about.html" class="close-panel swiper_read_more">Sign In</a>-->
 <!--                          <br />-->
-                          <a href="#" data-popup=".popup-login" class="open-popup close-panel swiper_read_more" id="sinBox">Sign In</a>
+<!--                          <a href="#" data-popup=".popup-login" class="open-popup close-panel swiper_read_more" id="sinBox">Sign In</a>-->
                           <!--  Code for payments-->
 <!--                          <div class="app">-->
 <!--                              <h1>Apache Cordova</h1>-->
@@ -96,6 +96,7 @@
 <!--                              </div>-->
 <!--                          </div>-->
                           <!--  Code for payments-->
+                          <a class="swiper_read_more" href="login.html" id="sinBox">Sign In</a>
                           <br />
                            <a class="swiper_read_more" href="signup.html" id="sinBox">Sign Up</a>
                            <br />
@@ -142,29 +143,154 @@
     <div class="popup popup-login bg_login">
         <div class="content-container">
 
-        <div class="content-block">
-            <h4>Login</h4>
-            <div class="loginform">
-                <form id="LoginForm" method="post">
-                    <label>Username:</label>
-                    <input type="text" name="username" value="" class="form_input required" id="username"/>
-                    <label>Password:</label>
-                    <input type="password" name="password" value="" class="form_input required" id="password"/>
-                    <a href="job_list.html">
-                    <input  type="button" name="submit" class="form_submit" id="loSubmit" value="Login"/>
-                    </a>
-                </form>
-                <div
-                    class="fb-like"
-                    data-share="true"
-                    data-width="450"
-                    data-show-faces="true">
-                </div>
+<!--        <div class="content-block">-->
+<!--            <h4>Login</h4>-->
+<!--            <div class="loginform">-->
+<!--                <form id="LoginForm" method="post">-->
+<!--                    <label>Username:</label>-->
+<!--                    <input type="text" name="username" value="" class="form_input required" id="username"/>-->
+<!--                    <label>Password:</label>-->
+<!--                    <input type="password" name="password" value="" class="form_input required" id="password"/>-->
+<!--                    <a href="job_list.html">-->
+<!--                    <input  type="button" name="submit" class="form_submit" id="loSubmit" value="Login"/>-->
+<!--                    </a>-->
+<!--                </form>-->
+<!--                <div-->
+<!--                    class="fb-like"-->
+<!--                    data-share="true"-->
+<!--                    data-width="450"-->
+<!--                    data-show-faces="true">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>-->
+<!--        </div>-->
+
+<div class="page-content">
+    <div class="navbarpages ">
+        <div class="navbar_home_link"><a href="#" class="open-panel">    <div style="color:white;" class="item-media"><i class="icon f7-icons">left</i></div></a></div>
+        <div class="navbar_page_center" id="ei">Login</div>
+        
+    </div>
+    
+    <div id="pages_maincontent">
+        
+        
+        
+        <div>                           <img width="100%" class="" src="images/index.png">
             </div>
-            <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
+        <div class="list-block">
+            <ul style="border-top: 1px solid rgb(162, 162, 162);">
+                <!-- Text inputs -->
+                <li class="no-bottom-border">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons">person</i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">First Name</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="Your First name">
+                                    </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="no-bottom-border no-icon-form">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">Last Name</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="Your Last name">
+                                    </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- Select -->
+                <li class="no-bottom-border">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons">persons</i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">Gender</div>
+                            <div class="item-input">
+                                <select>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Date -->
+                <li class="no-bottom-border">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons">calendar</i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">Birth date</div>
+                            <div class="item-input">
+                                <input type="date" placeholder="Birth day" value="2014-04-30">
+                                    </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="no-bottom-border">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons">email</i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">E-mail</div>
+                            <div class="item-input">
+                                <input type="email" placeholder="E-mail">
+                                    </div>
+                        </div>
+                        
+                    </div>
+                    <span class="info-line-form">You can only register with .edu email address. </span>
+                </li>
+                <li class="no-bottom-border">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons">lock</i></div>
+                        <div class="item-inner">
+                            <div class="item-title label"> Password</div>
+                            <div class="item-input">
+                                <input type="password" placeholder=" Password">
+                                    </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="no-bottom-border no-icon-form">
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon f7-icons"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">Confirm Password</div>
+                            <div class="item-input">
+                                <input type="password" placeholder="Confirm Password">
+                                    </div>
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+            <a href="job_list.html">
+                <input  type="button" name="submit" class="form_submit" id="loSubmit" value="Sign Up"/>
+            </a>
         </div>
-    </div>  
-    <div class="blur"> shjdfdsfaxax</div>
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="blur"> shjdfdsfaxax</div>
 </div>
 
 
