@@ -309,7 +309,7 @@ function checkLoginStart(){
 function popInternlist2(stuId){
     
     var toAppend = "";
-    $.getJSON("https://kportals.com/cyberIntern/app/dbJson.php", function(data){
+    $.getJSON("https://www.kportals.com/cyberIntern/app/dbJson.php", function(data){
               
               $.each(data, function(index, value){
                      //alert(value[16]);
@@ -372,10 +372,37 @@ function signUp(){
     var csP = $("#csPass").val();
     //alert(fn+""+ln+""+gn+""+dofb+""+eM+""+sP+""+csP+""+uN);
     //alert("usrname is: "+un+" pass is: "+pas);
-    
+    var spEmail = eM.split(".");
+    if(spEmail[spEmail.length-1] == "edu"){
+    //    alert(spEmail[spEmail.length-1]);
+        
+    //////to check if email already exists/////
+        var emPresent = 0;
+        $.ajax({
+               type: "POST",
+               url: "https://www.kportals.com/cyberIntern/app/eMailSignupCheck.php",
+               data: {eMail: eM},
+               success: function(html){
+               //alert(html);
+               if(html==2){
+               alert("This email is already registered.");
+               emPresent = 0;
+               //window.location.assign("login.html");
+               } else if(html == 3){
+               
+               emPresent = 1;
+               
+               }
+               }
+               });
+        
+        /////////////////email checking done//////////
+        
+      //////The below code executes only if email does not existes already///////////
+        if(emPresent == 1){
     $.ajax({
            type: "POST",
-           url: "https://kportals.com/cyberIntern/app/signup.php",
+           url: "https://www.kportals.com/cyberIntern/app/signup.php",
            data: {fname: fn, lname: ln, gen: gn, dob: dofb,eMail: eM, uName: uN, pass: sP, cpass: csP},
            success: function(html){
            //alert(html);
@@ -385,6 +412,8 @@ function signUp(){
            }
            }
            });
+        }
+    } else {alert("Only .edu is accepted");}
     
 }
 
@@ -410,7 +439,7 @@ function signIn(){
     
     $.ajax({
            type: "POST",
-           url: "https://kportals.com/cyberIntern/app/signin.php",
+           url: "https://www.kportals.com/cyberIntern/app/signin.php",
            data: {name: un, pwd: pas},
            success: function(html){
            if(html== 2)    {
@@ -473,7 +502,7 @@ function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
     
     $.ajax
     ({
-     url: "https://kportals.com/cyberIntern/app/check_list.php",
+     url: "https://www.kportals.com/cyberIntern/app/check_list.php",
      type : "POST",
      data: {stu_id: stuId, job_id: jId},
      success: function(response)
@@ -518,7 +547,7 @@ function addList(){
     //alert(selJob);
     $.ajax
     ({
-     url: "https://kportals.com/cyberIntern/app/update_list.php",
+     url: "https://www.kportals.com/cyberIntern/app/update_list.php",
      type : "POST",
      data: {stu_id: studId, job_id: selJob},
      success: function(response)
@@ -545,7 +574,7 @@ function MylistPopultor(sId){
     alert("student Id is:"+x);
     $.ajax
     ({
-     url: "https://kportals.com/cyberIntern/app/checkApply.php",
+     url: "https://www.kportals.com/cyberIntern/app/checkApply.php",
      type : "POST",
      data: {stu_id: x},
      success: function(response)
@@ -571,7 +600,7 @@ function match_job(jobId){
    // }
     var stuIds = localStorage.getItem("studentId");
     var toAppender = "";
-    $.getJSON("https://kportals.com/cyberIntern/app/dbJson.php", function(data){
+    $.getJSON("https://www.kportals.com/cyberIntern/app/dbJson.php", function(data){
               
               $.each(data, function(index, value){
                      //alert(value[16]);
