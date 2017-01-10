@@ -2070,7 +2070,7 @@ html.pixel-ratio-3 .list-block ul:before {
   top: auto;
   height: 1px;
   width: 100%;
-  background-color: #c8c7cc;
+/*  background-color: #c8c7cc;*/
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 100%;

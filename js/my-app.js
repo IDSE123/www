@@ -435,7 +435,7 @@ function loadSettings(){
 function signIn(){
     var un = $("#username").val();
     var pas = $("#password").val();
-    //alert("usrname is: "+un+" pass is: "+pas);
+   // alert("usrname is: "+un+" pass is: "+pas);
     
     $.ajax({
            type: "POST",
@@ -454,7 +454,7 @@ function signIn(){
            else    {
            //window.location="dashboard.php";
            //alert("You have successfully logged in. ");
-        //   alert(html);
+          //alert("alerting:"+html);
            navigator.notification.alert(
                 'You are logged in!!',  // message
                  alertDismissed,         // callback
