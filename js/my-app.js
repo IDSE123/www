@@ -571,7 +571,7 @@ function createMyList(){
 function MylistPopultor(sId){
 
     var x = Number(sId);
-    alert("student Id is:"+x);
+    //alert("student Id is:"+x);
     $.ajax
     ({
      url: "https://www.kportals.com/cyberIntern/app/checkApply.php",
@@ -580,9 +580,9 @@ function MylistPopultor(sId){
      success: function(response)
      {
      if(response == 0){
-        alert(response);
+        alert("Some thing went wrong please try again!");
      } else {
-        alert("else: "+response);
+        //alert("else: "+response);
      match_job(response);
      }
      }
