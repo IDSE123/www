@@ -423,7 +423,8 @@ function signOut(){
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
     localStorage.setItem("studentId", "");
-    alert(localStorage.getItem("studentId"));
+    localStorage.setItem("studentName", "");
+    alert("You have successfully logged out.");
     
 }
 
@@ -441,14 +442,17 @@ function signIn(){
            url: "https://www.kportals.com/cyberIntern/app/preferences.php",
            data: {name: un, pwd: pas},
            success: function(resp){
-           if(resp== 0)    {
+           var respPref = resp.split(",");
+           //alert(respPref[0]);
+           if(respPref[0] == 0)    {
            //alert(html);
+           saveinLocal("studentName",respPref[1]);
            alert("Please complete you preferences to continue.");
            window.location.assign("preferences.html");
            
            }
            
-           else if(resp == 1) {
+           else if(respPref[0] == 1) {
           ///////////////The sign in process/////////
            
            $.ajax({
@@ -456,6 +460,8 @@ function signIn(){
                   url: "https://www.kportals.com/cyberIntern/app/signin.php",
                   data: {name: un, pwd: pas},
                   success: function(html){
+                  //alert(html);
+                  var htmleco = html.split(",");
                   if(html== 2)    {
                   //alert(html);
                   alert("The login information is incorrect.");
@@ -474,9 +480,9 @@ function signIn(){
                                                'Ok'                  // buttonName
                                                );
                   ///////Local storage function saveSettings()////
-                  saveSettings(un,pas,html);
+                  saveSettings(un,pas,htmleco[0],htmleco[1]);
                   
-                  popInternlist(html);
+                  popInternlist(html[0]);
                   }
                   }
                   });
@@ -498,12 +504,20 @@ function signIn(){
     
 }
 
-function saveSettings(un,pas,suid){
+function saveinLocal(loName, loValue){
+
+    localStorage.setItem(loName, loValue);
+    alert(localStorage.getItem("studentName"));
+
+}
+
+function saveSettings(un,pas,suid,sname){
     
     localStorage.setItem("username", un);
     localStorage.setItem("password", pas);
     localStorage.setItem("studentId", suid);
-    //alert("user name: "+localStorage.getItem("username"));
+    localStorage.setItem("studentName", sname);
+    //alert("user name: "+localStorage.getItem("studentName"));
     
 }
 
@@ -524,7 +538,7 @@ function IntDesc2(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
 var selJob = 0;
 var studId = 0;
 function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
-    
+    //////To check if already added to the list/////
     $.ajax
     ({
      url: "https://www.kportals.com/cyberIntern/app/check_list.php",
@@ -537,6 +551,23 @@ function intr(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
      
      document.getElementById("jList").disabled = true;
      document.getElementById("jList").value = "Already in List";
+     
+     }
+     }
+     });
+    //////Checking already in list end/////
+    $.ajax
+    ({
+     url: "https://www.kportals.com/cyberIntern/app/checkMailCap.php",
+     type : "POST",
+     data: {stu_id: stuId, job_id: jId},
+     success: function(response)
+     {
+     //alert(response);
+     if(response == 0){
+     
+     $("#dApply").attr("href", "payments.html")
+     document.getElementById("jEmail").value = "Please Pay to continue";
      
      }
      }
