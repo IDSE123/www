@@ -436,40 +436,65 @@ function signIn(){
     var un = $("#username").val();
     var pas = $("#password").val();
    // alert("usrname is: "+un+" pass is: "+pas);
-    
     $.ajax({
            type: "POST",
-           url: "https://www.kportals.com/cyberIntern/app/signin.php",
+           url: "https://www.kportals.com/cyberIntern/app/preferences.php",
            data: {name: un, pwd: pas},
-           success: function(html){
-           if(html== 2)    {
+           success: function(resp){
+           if(resp== 0)    {
            //alert(html);
-           alert("The login information is incorrect.");
-           window.location.assign("index.html");
+           alert("Please complete you preferences to continue.");
+           window.location.assign("preferences.html");
            
-           //$("#jobD").html("");
-           //$("#jobD").html("<div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div>");
            }
-           ///<li class=\"swipeout\" id=\"jobD\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\"images/photos/photo8.jpg\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"blog-single.html\">Job Title</a></h2><p>The One and Only DC</p><span class=\"post_date\">24.02.2015</span><span class=\"post_author\">by <a href=\"#\">admin</a></span><span class=\"post_comments\"><a href=\"#\">0</a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>////
-           else    {
-           //window.location="dashboard.php";
-           //alert("You have successfully logged in. ");
-          //alert("alerting:"+html);
-           navigator.notification.alert(
-                'You are logged in!!',  // message
-                 alertDismissed,         // callback
-                'Cyber Interns',            // title
-                'Ok'                  // buttonName
-                                        );
-           ///////Local storage function saveSettings()////
-           saveSettings(un,pas,html);
-           popInternlist(html);
+           
+           else if(resp == 1) {
+          ///////////////The sign in process/////////
+           
+           $.ajax({
+                  type: "POST",
+                  url: "https://www.kportals.com/cyberIntern/app/signin.php",
+                  data: {name: un, pwd: pas},
+                  success: function(html){
+                  if(html== 2)    {
+                  //alert(html);
+                  alert("The login information is incorrect.");
+                  window.location.assign("index.html");
+                  
+                  }
+                  
+                  else    {
+                  //window.location="dashboard.php";
+                  //alert("You have successfully logged in. ");
+                  //alert("alerting:"+html);
+                  navigator.notification.alert(
+                                               'You are logged in!!',  // message
+                                               alertDismissed,         // callback
+                                               'Cyber Interns',            // title
+                                               'Ok'                  // buttonName
+                                               );
+                  ///////Local storage function saveSettings()////
+                  saveSettings(un,pas,html);
+                  
+                  popInternlist(html);
+                  }
+                  }
+                  });
+           
+           ///////////////End of Sign in process////////
+           } else if(resp == 2){
+           
+            alert("The login information is incorrect.");
+            window.location.assign("index.html");
+           
            }
            }
            });
-    //$("#sinBox").html="Sign Out";
-    //the latest one
-    //toAppend += "<li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2><a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+value[8]+"','"+value[16]+"','"+value.description+"')\">"+value.position+"</a></h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li>";
+    
+    ///////////check if pref done or not and put if below////////
+    
+    
+    
     
 }
 
