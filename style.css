@@ -1296,3 +1296,23 @@ margin-left: 24px;
 .check-box-label{
     margin-left:15px;
 }
+.profile-pic{
+
+width:150px;
+text-shadow: 2px 2px 4px #000000;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+/* box-shadow */
+-webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+-moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+border: 2px solid white;
+margin-bottom: 20px;
+}
+.name-menu{
+    margin-left: 30px;
+    margin-top: -20px;
+    margin-bottom: 25px;
+
+}
