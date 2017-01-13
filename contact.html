@@ -1,48 +1,108 @@
-<div class="pages">
-  <div data-page="projects" class="page no-toolbar no-navbar">
-    <div class="page-content">
-    
-     <div class="navbarpages">
-       <div class="navbar_home_link"><a href="index.html"><img src="images/icons/white/home.png" alt="" title="" /></a></div>
-       <div class="navbar_page_center">Contact</div>
-       <div class="menu_open_icon_white"><a href="#" class="open-panel"><img src="images/menu_open.png" alt="" title="" /></a></div>
-     </div>
-     <div id="pages_maincontent">
-      
-      <h2 class="page_subtitle">Get in touch</h2>
+<!DOCTYPE html>
+<script type="text/javascript" src="js/framework7.js"></script>
 
-            <h2 id="Note"></h2>
-            <div class="contactform">
-            <form class="cmxform" id="ContactForm" method="post" action="">
-            <label>Name:</label>
-            <input type="text" name="ContactName" id="ContactName" value="" class="form_input required" />
-            <label>Email:</label>
-            <input type="text" name="ContactEmail" id="ContactEmail" value="" class="form_input required email" />
-            <label>Message:</label>
-            <textarea name="ContactComment" id="ContactComment" class="form_textarea textarea required" rows="" cols=""></textarea>
-            <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
-            <input class="" type="hidden" name="to"  value="youremail@yourwebsite.com" />
-            <input class="" type="hidden" name="subject" value="Contacf form message" />
-            <label id="loader" style="display:none;"><img src="images/loader.gif" alt="Loading..." id="LoadingGraphic" /></label>
-            </form>
-            </div>
-            
-      <h3>Our Location</h3>
-      
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193578.74109041138!2d-73.97968099999997!3d40.70331274999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York+NYC%2C+New+York%2C+Statele+Unite+ale+Americii!5e0!3m2!1sro!2s!4v1425027721891" width="100%" height="200" frameborder="0" style="border:0"></iframe> 
-      
-      <blockquote>
-      Adress: New York 23066 / Pacific Street / Brooklyn <br />
-      Email: email@yourwebsite.com <br />
-      Mobile: +900 456 567 77
-      </blockquote> 
-      
-      <div class="call_button"><a href="tel:+900 456 567 77" class="external">Call Us Now!</a></div>    
-      
-      <div class="clear"></div>
-      </div>
-      
-      
-    </div>
-  </div>
-</div>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                
+                
+                <link rel="stylesheet" href="css/framework7.css">
+                    <link rel="stylesheet" href="style.css">
+                        <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+                        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900 ' rel='stylesheet' type='text/css'>
+                            <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+                            <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+                            
+                            <script type="text/javascript" src="js/jquery.swipebox.js"></script>
+                            <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+                            <script type="text/javascript" src="js/email.js"></script>
+                            <!--        <script>-->
+                            <!--            $(function() {-->
+                            <!--              var text = window.location.hash.substring(1);-->
+                            <!--              alert("TEST:"+text);-->
+                            <!--              });-->
+                            <!--            </script>-->
+                            <div class="pages view view-main">
+                                <div data-page="projects" class="page">
+                                    <div class="page-content">
+                                        <div class="navbarpages ">
+                                            <div class="navbar_home_link"><a href="#" class="open-panel"><img src="images/menu_open.png" alt="" title="" /></a></div>
+                                            <div class="navbar_page_center" id="ei">My List</div>
+                                            <div class="menu_open_icon_white"><a onclick="views()" href="#">  <div class="item-media"><i style="color:white;margin-top: -5px;" class="icon f7-icons">graph_square</i></div><span style="margin-top: 16px;" class="tbadge">3</span></a></div>
+                                        </div>
+                                        
+                                        <div id="pages_maincontent">
+                                            
+                                            
+                                            4031 Colonel Glenn <br>Hwy Ste 100<br>
+                                            Beavercreek, OH <br>45431<br>
+                                            <h3>Call us at: (937) 867 0962<h3>
+                                                <br>
+                                            <h3>Mail us at: info@onesmarter.com<h3>
+                                                </div>
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                    
+                                    
+                                    <!-- Bottom Toolbar-->
+                                    <!-- Bottom Toolbar-->
+                                    <div class="toolbar">
+                                        <div class="toolbar-inner">
+                                            <ul class="toolbar_icons icons_4row">
+                                                <li><a href="profile.html" ><img src="images/icons/white/user.png" alt="" title="" /></a></li>
+                                                <li><a href="preferences.html"><img src="images/icons/white/docs.png" alt="" title="" /></a></li>
+                                                <li><a href="myList.html" onclick="createMyList()"> <div class="item-media"><i style="
+                                                    color: white;" class="icon f7-icons">list</i></div>   <span class="badge" id="jId">9</span>
+                                                </a></li>
+                                                <!--                            <li><a href="#" data-popup=".popup-social" class="open-popup">  <div class="item-media"><i style="-->
+                                                <!--                                color: white;" class="icon f7-icons">card</i></div></a></li>-->
+                                                <li><a href="payments.html" >  <div class="item-media"><i style="
+                                                    color: white;" class="icon f7-icons">card</i></div></a></li></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Bottom Toolbar End-->
+                            </div>
+                            <div class="popup popup-login">
+                                <div class="content-block">
+                                    <h4>Login</h4>
+                                    <div class="loginform">
+                                        <form id="LoginForm" method="post">
+                                            <label>Username:</label>
+                                            <input type="text" name="username" value="" class="form_input required" id="username"/>
+                                            <label>Password:</label>
+                                            <input type="password" name="password" value="" class="form_input required" id="password"/>
+                                            <input  type="button" name="submit" class="form_submit" id="submit" value="Login" onclick="signIn()"/>
+                                        </form>
+                                        <div
+                                            class="fb-like"
+                                            data-share="true"
+                                            data-width="450"
+                                            data-show-faces="true">
+                                        </div>
+                                    </div>
+                                    <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
+                                </div>
+                            </div>
+                            <!-- Services Popup -->
+                            <div class="popup popup-social">
+                                <div class="content-block">
+                                    <h4>Social Share</h4>
+                                    <p>Share icons solution that allows you share and increase your social popularity.</p>
+                                    <ul class="social_share">
+                                        <li><a href="#"><img src="images/icons/white/twitter.png" alt="" title="" /></a></li>
+                                        <li><a href="#"><img src="images/icons/white/facebook.png" alt="" title="" /></a></li>
+                                        <li><a href="#"><img src="images/icons/white/googleplus.png" alt="" title="" /></a></li>
+                                        <li><a href="#"><img src="images/icons/white/dribbble.png" alt="" title="" /></a></li>
+                                        <li><a href="#"><img src="images/icons/white/linkedin.png" alt="" title="" /></a></li>
+                                        <li><a href="#"><img src="images/icons/white/pinterest.png" alt="" title="" /></a></li>
+                                    </ul>
+                                    <div class="close_popup_button"><a href="#" class="close-popup">Close</a></div>
+                                </div>
+                            </div>
+                            
+                            </div>
