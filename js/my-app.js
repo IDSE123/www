@@ -349,6 +349,8 @@ function listPopultor(listIt){
     //alert("Devanshu is badass!! ");
     $("#internList").html("");
     $("#internList").html(listIt);
+    var cas = localStorage.getItem("studentId");
+    badgePopulater(cas);
 }
 
 ////////js from index//////
@@ -680,7 +682,39 @@ function match_job(jobId){
               //alert(toAppend);
               $("#internLister").html("");
               $("#internLister").html(toAppender);
+              $(".badge").html(jobData.length);
               });
+    
+}
+
+
+function badgePopulater(sId){
+    
+    var x = Number(sId);
+    //alert("student Id is:"+x);
+    $.ajax
+    ({
+     url: "https://www.kportals.com/cyberIntern/app/checkApply.php",
+     type : "POST",
+     data: {stu_id: x},
+     success: function(response)
+     {
+     if(response == 0){
+     alert("Some thing went wrong please try again!");
+     } else {
+     //alert("else: "+response);
+     showBadge(response);
+     }
+     }
+     });
+    
+}
+
+function showBadge(bNumb){
+    
+    var bData = bNumb.split("|");
+    $(".badge").html(bData.length);
+    alert("badge done");
     
 }
 
