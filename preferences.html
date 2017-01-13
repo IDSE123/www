@@ -29,7 +29,7 @@
                                             
                                         </div>
                                         
-                                        <div id="pages_maincontent">
+        <div id="pages_maincontent">
                                             
                                             
                                             
@@ -45,7 +45,7 @@
                       <div class="item-inner">
                           <div class="item-title label">Name</div>
                           <div class="item-input">
-                              <input type="text" placeholder="Your First name" id="fName">
+                              <input type="text" placeholder="Your First name" id="pfName">
                                   </div>
                       </div>
                   </div>
@@ -58,7 +58,7 @@
                      <div class="item-inner">
                          <div class="item-title label">University</div>
                          <div class="item-input">
-                             <input type="text" placeholder="Your First name" id="fName">
+                             <input type="text" placeholder="School name" id="puName">
                                  </div>
                      </div>
                  </div>
@@ -71,7 +71,7 @@
                      <div class="item-inner">
                          <div class="item-title label">City</div>
                          <div class="item-input">
-                             <input type="text" placeholder="Your First name" id="fName">
+                             <input type="text" placeholder="City of Residence" id="pcName">
                                  </div>
                      </div>
                  </div>
@@ -83,7 +83,7 @@
                          <div class="item-title label">State</div>
 
                          <div class="item-input">
-                             <select>
+                             <select id="pState">
     <option value="" disabled selected hidden>Please Select Your State</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -135,7 +135,8 @@
     <option value="WA">Washington</option>
     <option value="WV">West Virginia</option>
     <option value="WI">Wisconsin</option>
-                                 <option value="WY">Wyoming</option>               </select>
+    <option value="WY">Wyoming</option>
+                             </select>
                          </div>
                      </div>
                  </div>
@@ -151,7 +152,7 @@
                     <div class="item-inner">
                         <div class="item-title label">Zip</div>
                         <div class="item-input">
-                            <input type="text" placeholder="Your First name" id="fName">
+                            <input type="text" placeholder="Enter ZIP code" id="pZip">
                                 </div>
                     </div>
                 </div>
@@ -167,7 +168,7 @@
                     <div class="item-inner">
                         <div class="item-title label">Phone</div>
                         <div class="item-input">
-                            <input type="tel" placeholder="Phone" id="fName">
+                            <input type="tel" placeholder="Phone" id="pFone">
                                 </div>
                     </div>
                 </div>
@@ -181,7 +182,7 @@
                     <div class="item-inner">
                         <div class="item-title label">E-mail</div>
                         <div class="item-input">
-                            <input type="email" placeholder="E-mail">
+                            <input type="email" placeholder="E-mail" id="pEmail">
                                 </div>
                     </div>
                 </div>
@@ -205,7 +206,7 @@
                       <div class="item-inner">
                           <div class="item-title label">LinkedIn URL</div>
                           <div class="item-input">
-                              <input type="url" placeholder="LinkedIn URL">
+                              <input type="url" placeholder="LinkedIn URL" id="pLinkedin">
                                   </div>
                       </div>
                   </div>
@@ -220,7 +221,7 @@
                    <div class="item-inner">
                        <div class="item-title label">Facebook URL</div>
                        <div class="item-input">
-                           <input type="url" placeholder="Facebook URL">
+                           <input type="url" placeholder="Facebook URL" id="pFacebook">
                                </div>
                    </div>
                </div>
@@ -232,7 +233,7 @@
                    <div class="item-inner">
                        <div class="item-title label">Twitter URL</div>
                        <div class="item-input">
-                           <input type="url" placeholder="Twitter URL">
+                           <input type="url" placeholder="Twitter URL" id="pTwitter">
                                </div>
                    </div>
                </div>
@@ -245,7 +246,7 @@
                    <div class="item-inner">
                        <div class="item-title label">Github URL</div>
                        <div class="item-input">
-                           <input type="url" placeholder="Github URL">
+                           <input type="url" placeholder="Github URL" id="pGit">
                                </div>
                    </div>
                </div>
@@ -261,15 +262,37 @@
                    <div class="item-inner">
                        <div class="item-title label">Website URL</div>
                        <div class="item-input">
-                           <input type="url" placeholder="Website URL">
+                           <input type="url" placeholder="Website URL" id="pWebsite">
                                </div>
                    </div>
                </div>
            </li>
            
-           
-           
-           <div class="list-block">
+           <li class="no-bottom-border">
+               <div class="item-content">
+                   <div class="item-media"><i class="icon f7-icons">world</i></div>
+                   <div class="item-inner">
+                       <div class="item-title label">Recommendations</div>
+                       <div class="item-input">
+                           <input type="email" placeholder="Recommendations separated by comas" id="pRecom">
+                               </div>
+                   </div>
+               </div>
+           </li>
+        
+          <li class="no-bottom-border">
+              <div class="item-content">
+                  <div class="item-media"><i class="icon f7-icons">world</i></div>
+                  <div class="item-inner">
+                      <div class="item-title label">Certifications</div>
+                      <div class="item-input">
+                          <input type="url" placeholder="Certifications" id="pCert">
+                              </div>
+                  </div>
+              </div>
+          </li>
+        
+        <div class="list-block">
                <div style="margin-left: 15px;" class="item-media"><i class="icon f7-icons">social_github_fill</i><span class="check-box-label"> Eligibility</span></div>
 
                <ul>
@@ -277,7 +300,7 @@
                    <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
                        <label class="label-checkbox item-content">
                            <!-- Checked by default -->
-                           <input type="checkbox" name="my-checkbox" value="CPT" checked="checked">
+                           <input type="checkbox" name="my-checkbox" value="CPT" checked="checked" id="pCpt">
                                <div class="item-media">
                                    <i class="icon icon-form-checkbox"></i>
                                </div>
@@ -289,7 +312,7 @@
                    <!-- Another chekbox item -->
                    <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
                        <label class="label-checkbox item-content">
-                           <input type="checkbox" name="my-checkbox" value="OPT">
+                           <input type="checkbox" name="my-checkbox" value="OPT" id="pOpt">
                                <div class="item-media">
                                    <i class="icon icon-form-checkbox"></i>
                                </div>
@@ -300,7 +323,7 @@
                    </li>
                    <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
                        <label class="label-checkbox item-content">
-                           <input type="checkbox" name="my-checkbox" value="OPT">
+                           <input type="checkbox" name="my-checkbox" value="uscitizen" id="pUsc">
                                <div class="item-media">
                                    <i class="icon icon-form-checkbox"></i>
                                </div>
@@ -315,52 +338,7 @@
            
            
            
-           <!-- Eligibility Check Box -->
-
-           <div class="list-block">
-               <div style="margin-left: 15px;" class="item-media"><i class="icon f7-icons">social_github_fill</i><span class="check-box-label"> Eligibility</span></div>
-               
-               <ul>
-                   <!-- Single chekbox item -->
-                   <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
-                       <label class="label-checkbox item-content">
-                           <!-- Checked by default -->
-                           <input type="checkbox" name="my-checkbox" value="CPT" checked="checked">
-                               <div class="item-media">
-                                   <i class="icon icon-form-checkbox"></i>
-                               </div>
-                               <div class="item-inner">
-                                   <div class="item-title">CPT</div>
-                               </div>
-                               </label>
-                   </li>
-                   <!-- Another chekbox item -->
-                   <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
-                       <label class="label-checkbox item-content">
-                           <input type="checkbox" name="my-checkbox" value="OPT">
-                               <div class="item-media">
-                                   <i class="icon icon-form-checkbox"></i>
-                               </div>
-                               <div class="item-inner">
-                                   <div class="item-title">OPT</div>
-                               </div>
-                               </label>
-                   </li>
-                   <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
-                       <label class="label-checkbox item-content">
-                           <input type="checkbox" name="my-checkbox" value="OPT">
-                               <div class="item-media">
-                                   <i class="icon icon-form-checkbox"></i>
-                               </div>
-                               <div class="item-inner">
-                                   <div class="item-title">US Citizen</div>
-                               </div>
-                               </label>
-                   </li>
-                   
-               </ul>
-           </div>
-           <!-- Eligibility Check Box End-->
+           
            
 
 
@@ -376,7 +354,7 @@
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
                 <!-- Checked by default -->
-                <input type="checkbox" name="my-checkbox" value="C++" checked="checked">
+                <input type="checkbox" name="my-checkbox" value="C++" checked="checked" id="pCpp">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -388,7 +366,7 @@
         <!-- Another chekbox item -->
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Java">
+                <input type="checkbox" name="my-checkbox" value="Java" id="pJava">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -399,7 +377,7 @@
         </li>
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Python">
+                <input type="checkbox" name="my-checkbox" value="Python" id="pPyth">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -428,7 +406,7 @@
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
                 <!-- Checked by default -->
-                <input type="checkbox" name="my-checkbox" value="Full Time" checked="checked">
+                <input type="checkbox" name="my-checkbox" value="Full Time" checked="checked" id="pFull">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -440,7 +418,7 @@
         <!-- Another chekbox item -->
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Part Time">
+                <input type="checkbox" name="my-checkbox" value="Part Time" id="pPart">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -451,19 +429,19 @@
         </li>
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Free">
+                <input type="checkbox" name="my-checkbox" value="Free" id="pUnpaid">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
                     <div class="item-inner">
-                        <div class="item-title">Free</div>
+                        <div class="item-title">Unpaid</div>
                     </div>
                     </label>
         </li>
         
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Paid">
+                <input type="checkbox" name="my-checkbox" value="Paid" id="pPaid">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -490,35 +468,35 @@
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
                 <!-- Checked by default -->
-                <input type="checkbox" name="my-checkbox" value="Fall 2017" checked="checked">
+                <input type="checkbox" name="my-checkbox" value="Fall" checked="checked" id="pFall">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
                     <div class="item-inner">
-                        <div class="item-title">Fall 2017</div>
+                        <div class="item-title">Fall</div>
                     </div>
                     </label>
         </li>
         <!-- Another chekbox item -->
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Spring 2017">
+                <input type="checkbox" name="my-checkbox" value="Spring" id="pSpring">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
                     <div class="item-inner">
-                        <div class="item-title">Spring 2017</div>
+                        <div class="item-title">Spring</div>
                     </div>
                     </label>
         </li>
         <li style="padding: 10px 0 10px 0;" class="no-bottom-border">
             <label class="label-checkbox item-content">
-                <input type="checkbox" name="my-checkbox" value="Summer 2017">
+                <input type="checkbox" name="my-checkbox" value="Summer" id="pSummer">
                     <div class="item-media">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
                     <div class="item-inner">
-                        <div class="item-title">Summer 2017</div>
+                        <div class="item-title">Summer</div>
                     </div>
                     </label>
         </li>
@@ -533,7 +511,7 @@
 
               
             </ul>
-          <a href="#" onclick="signUp()">
+          <a href="#" onclick="savePref()">
               <input  type="button" name="submit" class="form_submit" id="signUp" value="Save"/>
           </a>
       </div>

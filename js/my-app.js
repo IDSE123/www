@@ -447,8 +447,12 @@ function signIn(){
            if(respPref[0] == 0)    {
            //alert(html);
            saveinLocal("studentName",respPref[1]);
-           alert("Please complete you preferences to continue.");
-           window.location.assign("preferences.html");
+           saveinLocal("studentId",respPref[2]);
+           alert(localStorage.getItem("studentId"));
+           alert("Please fill in your preferences to continue.");
+           //window.location.assign("preferences.html");
+           mainView.loadPage("preferences.html");
+           //mainView.router.load({ url: 'preferences.html', ignoreCache: true });
            
            }
            
@@ -465,14 +469,12 @@ function signIn(){
                   if(html== 2)    {
                   //alert(html);
                   alert("The login information is incorrect.");
-                  window.location.assign("index.html");
+                  mainView.loadPage("index.html");
                   
                   }
                   
                   else    {
-                  //window.location="dashboard.php";
-                  //alert("You have successfully logged in. ");
-                  //alert("alerting:"+html);
+                  mainView.loadPage("job_list.html");
                   navigator.notification.alert(
                                                'You are logged in!!',  // message
                                                alertDismissed,         // callback
@@ -491,7 +493,7 @@ function signIn(){
            } else if(resp == 2){
            
             alert("The login information is incorrect.");
-            window.location.assign("index.html");
+            mainView.loadPage("index.html");
            
            }
            }
@@ -507,7 +509,7 @@ function signIn(){
 function saveinLocal(loName, loValue){
 
     localStorage.setItem(loName, loValue);
-    alert(localStorage.getItem("studentName"));
+    //alert(localStorage.getItem("studentName"));
 
 }
 
@@ -685,5 +687,132 @@ function alertDismissed() {
     // do something
     popup = '.popup.modal-in';
     myApp.closeModal(popup);
+
+}
+
+function savePref(){
+    
+    var skill = "";
+    var eligibility = "";
+    var jobType = "";
+    var jobPeriod = "";
+    var univ = $("#puName").val();
+    var ci = $("#pcName").val();
+    var st = $("#pState").val();
+    var zip = $("#pZip").val();
+    var ph = $("#pFone").val();
+    var peml = $("#pEmail").val();
+    var linked = $("#pLinkedin").val();
+    var fb = $("#pFacebook").val();
+    var twit = $("#pTwitter").val();
+    var git = $("#pGit").val();
+    var webs = $("#pWebsite").val();
+    var recom = $("#pRecom").val();
+    var certi = $("#pCert").val();
+    
+    
+    ////skillset/////////
+    
+    if($("#pCpp").is(':checked')){
+    
+        //alert();
+        skill += $("#pCpp").val()+"|";
+        
+    }
+    if($("#pJava").is(':checked')){
+        
+        //alert();
+        skill += $("#pJava").val()+"|";
+        
+    }
+    if($("#pPyth").is(':checked')){
+        
+        //alert($("#pCpp").val());
+        skill += $("#pPyth").val()+"|";
+        
+    }
+    //////skillset end////////
+    
+    /////////Job Type/////////////
+    
+    if($("#pFull").is(':checked')){
+        
+       // alert();
+        jobType += $("#pFull").val()+"|";
+        
+    }
+    if($("#pPart").is(':checked')){
+        
+        jobType += $("#pPart").val()+"|";
+        
+    }
+    if($("#pUnpaid").is(':checked')){
+        
+        jobType += $("#pUnpaid").val()+"|";
+        
+    }
+    if($("#pPaid").is(':checked')){
+        
+        jobType += $("#pPaid").val()+"|";
+        
+    }
+    
+    /////////Job Type end/////////
+    
+    ////////job Period//////////
+    
+    if($("#pFall").is(':checked')){
+        
+        jobPeriod += $("#pFall").val() + "|";
+        
+    }
+    if($("#pSpring").is(':checked')){
+        
+        jobPeriod += $("#pSpring").val() + "|";
+        
+    }
+    if($("#pSummer").is(':checked')){
+        
+        jobPeriod += $("#pSummer").val() + "|";
+        
+    }
+    ////////job Period End//////////
+    
+    //////////////////eligibilty////////
+    if($("#pCpt").is(':checked')){
+        
+        eligibility += $("#pCpt").val() + "|";
+        
+    }
+    if($("#pOpt").is(':checked')){
+        
+        eligibility += $("#pCpt").val() + "|";
+        
+    }
+    if($("#pUsc").is(':checked')){
+        
+       eligibility += $("#pUsc").val() + "|";
+        
+    }
+    //////////////////eligibilty END////////
+    var pSuId = localStorage.getItem("studentId");
+    alert(skill + "    " + eligibility + "    " + jobType + "    " + jobPeriod);
+    
+    $.ajax({
+           type: "POST",
+           url: "https://www.kportals.com/cyberIntern/app/prefFill.php",
+           data: {sid: pSuId, puniv: univ, pcity: ci, pst: st, pzip: zip, pph: ph, eml: peml, plink: linked, pfb: fb, ptwit: twit, pgit: git, pwebs: webs, precom: recom, pcert: certi, pskill: skill, peli: eligibility, pjtype: jobType, pper: jobPeriod},
+           success: function(html){
+           /*alert(html);
+           if(html==2){
+           alert("Successfully updated. Please login to continue.");
+           mainView.loadPage("login.html");
+           }*/
+           
+           alert("Successfully updated. Please login to continue.");
+           mainView.loadPage("login.html");
+           }
+           });
+
 
 }
