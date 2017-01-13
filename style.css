@@ -1321,8 +1321,8 @@ margin-bottom: 20px;
 
 .badge, .tbadge{
     background: rgba(255, 255, 255, 1);
-    width: auto;
-    height: auto;
+    width: 20px;
+    height: 20px;
     margin: 0;
     
     border-radius: 50%;
