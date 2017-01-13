@@ -350,6 +350,7 @@ function listPopultor(listIt){
     $("#internList").html("");
     $("#internList").html(listIt);
     var cas = localStorage.getItem("studentId");
+    alert(cas);
     badgePopulater(cas);
 }
 
@@ -682,7 +683,7 @@ function match_job(jobId){
               //alert(toAppend);
               $("#internLister").html("");
               $("#internLister").html(toAppender);
-              $(".badge").html(jobData.length);
+              $(".badge").html(jobData.length-1);
               });
     
 }
@@ -690,15 +691,16 @@ function match_job(jobId){
 
 function badgePopulater(sId){
     
-    var x = Number(sId);
+    //var x = Number(sId);
     //alert("student Id is:"+x);
     $.ajax
     ({
      url: "https://www.kportals.com/cyberIntern/app/checkApply.php",
      type : "POST",
-     data: {stu_id: x},
+     data: {stu_id: sId},
      success: function(response)
      {
+     alert(response);
      if(response == 0){
      alert("Some thing went wrong please try again!");
      } else {
@@ -713,8 +715,9 @@ function badgePopulater(sId){
 function showBadge(bNumb){
     
     var bData = bNumb.split("|");
-    $(".badge").html(bData.length);
-    alert("badge done");
+    alert(bData.length-1);
+    $(".badge").html(bData.length-1);
+    //alert("badge done");
     
 }
 
