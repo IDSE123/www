@@ -1316,3 +1316,20 @@ margin-bottom: 20px;
     margin-bottom: 25px;
 
 }
+
+.badge{
+    background: rgba(255, 255, 255, 1);
+    width: auto;
+    height: auto;
+    margin: 0;
+    
+    border-radius: 50%;
+    position: absolute;
+    top: -13px;
+    /* right: -8px; */
+    /* padding: 5px; */
+    border: 1px white solid;
+    margin-top: -25px;
+    margin-left: 8px;
+    color: red;
+}

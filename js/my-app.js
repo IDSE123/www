@@ -293,15 +293,20 @@ $$(document).on('pageInit', function (e) {
 })
 
 function checkLoginStart(){
+    
     //alert("sayHello");
     //alert(localStorage.getItem("studentId"));
     var ca = localStorage.getItem("studentId");
+   // alert(ca +"-CA");
     if(ca != null){
         
         
         popInternlist2(ca);
         
     
+    }
+    else if(ca == ""){
+    window.location.assign("login.html");
     }
 }
 
@@ -425,6 +430,8 @@ function signOut(){
     localStorage.setItem("studentId", "");
     localStorage.setItem("studentName", "");
     alert("You have successfully logged out.");
+    //window.location.assign("index.html");
+    
     
 }
 
