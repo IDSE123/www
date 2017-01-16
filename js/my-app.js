@@ -867,3 +867,58 @@ function views() {
 
 
 }
+
+function showPref(){
+
+    var prefSid = localStorage.getItem("studentId");
+    if(prefSid == null || prefSid == ""){
+    
+        alert("You are not logged in!!");
+    
+    } else {
+    
+        setTimeout(function() {
+                   
+                   showJpref(prefSid);
+                   }, 1000);
+        
+    }
+}
+
+function showJpref(prefSid){
+
+    $.ajax({
+           type: "POST",
+           url: "https://www.kportals.com/cyberIntern/app/prefFetch.php",
+           data: {sid: prefSid},
+           success: function(html){
+           alert(html);
+            if(html==0){
+               alert("Not able to fetch at the moment!!");
+           }else{
+           
+                var fetchedPref = html.split("|");
+           alert(fetchedPref[0]);
+           $("#pfName").val(fetchedPref[0]);
+           $("#puName").val(fetchedPref[1]);
+           $("#pcName").val(fetchedPref[2]);
+           $("#pState").val(fetchedPref[3]);
+           $("#pZip").val(fetchedPref[4]);
+           $("#pFone").val(fetchedPref[5]);
+           $("#pEmail").val(fetchedPref[6]);
+           $("#pLinkedin").val(fetchedPref[7]);
+           $("#pFacebook").val(fetchedPref[8]);
+           $("#pTwitter").val(fetchedPref[9]);
+           $("#pGit").val(fetchedPref[10]);
+           $("#pWebsite").val(fetchedPref[11]);
+           $("#pRecom").val(fetchedPref[12]);
+           /*$("#pfName").html(fetchedPref[0]);
+           $("#pfName").html(fetchedPref[0]);
+           $("#pfName").html(fetchedPref[0]);*/
+           
+           }
+           
+           }
+           });
+    
+}
