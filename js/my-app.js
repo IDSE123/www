@@ -924,9 +924,12 @@ function showJpref(prefSid){
 }
 
 function popCam(){
-
+    /////quality: 50,
+//destinationType: Camera.DestinationType.FILE_URL,
+//sourceType: Camera.PictureSourceType.CAMERA
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-                                destinationType: Camera.DestinationType.FILE_URI });
+                                destinationType: Camera.DestinationType.FILE_URI,
+                                sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     
 }
 
