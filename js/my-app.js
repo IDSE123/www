@@ -333,6 +333,8 @@ function popInternlist2(stuId){
               //alert("dimag kharab!!!");
               });
     
+    badgePopulater(stuId);
+    
 }
 
 
@@ -350,7 +352,7 @@ function listPopultor(listIt){
     $("#internList").html("");
     $("#internList").html(listIt);
     var cas = localStorage.getItem("studentId");
-    alert(cas);
+    //alert(cas);
     badgePopulater(cas);
 }
 
@@ -675,7 +677,7 @@ function match_job(jobId){
                      //////IntDesc: Internship Description.////////
                      for(var i=0; i<jobData.length; i++){
                      if(value.idjob == jobData[i]){
-                     toAppender += "<a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div style=\"width:20%;\" class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div style=\"width:50%;\" class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"buttons-right\">  <input style=\"background-color:red;\"  type=\"button\" name=\"submit\" class=\"form_submit\" id=\"\" value=\"Remove\"/><input  type=\"button\" name=\"submit\" class=\"form_submit\" id=\"\" value=\"Apply\"/>   </div></div></div></div></li></a>";
+                     toAppender += "<div id='jl"+value.idjob+"'><a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div style=\"width:20%;\" class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div style=\"width:50%;\" class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"buttons-right\"> <a onclick=\"remList('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"> <input style=\"background-color:red;\"  type=\"button\" name=\"submit\" class=\"form_submit\" id=\"\" value=\"Remove\"/></a><a onclick=\"sendMailRes('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><input  type=\"button\" name=\"submit\" class=\"form_submit\" id='apb"+value.idjob+"' value=\"Apply\"/>   </div></div></div></div></li></a><div>";
                      }
                      }
                      
@@ -689,6 +691,30 @@ function match_job(jobId){
 }
 
 
+function remList(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
+    //alert(jId+"   "+stuId);
+    $("#jl"+jId).remove();
+    $.ajax
+    ({
+     url: "https://www.kportals.com/cyberIntern/app/remjob.php",
+     type : "POST",
+     data: {stu_id: stuId, job_id: jId},
+     success: function(response)
+     {
+        //alert(response);
+     badgePopulater(stuId);
+     
+     }
+     });
+    
+}
+
+function sendMailRes(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
+    alert("Sent mail to the employer!");
+    $("#apb"+jId).val("Sent on 01.19.17");
+    
+}
+
 function badgePopulater(sId){
     
     //var x = Number(sId);
@@ -700,7 +726,7 @@ function badgePopulater(sId){
      data: {stu_id: sId},
      success: function(response)
      {
-     alert(response);
+     //alert(response);
      if(response == 0){
      alert("Some thing went wrong please try again!");
      } else {
@@ -715,7 +741,7 @@ function badgePopulater(sId){
 function showBadge(bNumb){
     
     var bData = bNumb.split("|");
-    alert(bData.length-1);
+    //alert(bData.length-1);
     $(".badge").html(bData.length-1);
     //alert("badge done");
     
