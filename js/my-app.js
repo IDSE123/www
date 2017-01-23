@@ -738,6 +738,15 @@ function badgePopulater(sId){
     
 }
 
+////jIdab
+
+function aboutBadge(){
+
+    var abSid = localStorage.getItem("studentId");
+    badgePopulater(abSid);
+    
+}
+
 function showBadge(bNumb){
     
     var bData = bNumb.split("|");
