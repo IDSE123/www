@@ -292,6 +292,58 @@ $$(document).on('pageInit', function (e) {
 		
 })
 
+window.onload = function()
+{
+    //document.addEventListener("deviceready", readyTo, false);
+    //alert("device");
+   // alert("opened");
+    var push = PushNotification.init({
+                                     android: {
+                                     senderID: "69779195252",
+                                     icon : 'white_security'
+                                     },
+                                     ios: {
+                                     alert: "true",
+                                     badge: "true",
+                                     sound: "true"
+                                     },
+                                     windows: {}
+                                     });
+    
+    
+    push.on('registration', function(data) {
+            console.log(data.registrationId);
+            //registerDevice(data.registrationId);
+            alert(data.registrationId);
+            //$rootScope.registerDevice(data.registrationId);
+            });
+    var pushCheck = 0;
+    /*function registerDevice(devId){
+     //var pCheck = loadphReg();
+     //alert(pCheck);
+     if(pCheck == null){
+     //alert("Vallah!!!");
+     pushCheck++;
+     phReg(pushCheck);
+     var deviceType = device.platform;
+     //alert(deviceType);
+     /*$.post('http://kportals.com/kportalApp/verification/regDevice.php',{postdevId:devId,postdevType:deviceType},
+     function(data){
+     
+     //alert(data);
+     
+     });
+     
+     }
+     }*/
+    
+}
+
+function readyTo(){
+    
+    
+}
+
 function checkLoginStart(){
     
     //alert("sayHello");
