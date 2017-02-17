@@ -37,7 +37,7 @@
                 <ul>
 <!--                  <li class="home-icon"><a href="index.html" class="close-panel">Home</a></li>-->
    <li><i style="color: white; margin-top: -5px;" class="icon f7-icons left-menu-icon">photos</i><a href="job_list.html" class="close-panel" onclick="checkLoginStart()">Eligible Interships</a></li>
-                  <li class="external about-icon"><a href="profile.html" class="close-panel">Profile</a></li>
+                  <li class="external about-icon"><a href="profile.html" class="close-panel" onclick="showPrefPro()">Profile</a></li>
                   <li><img class="left-menu-icon" src="images/icons/white/docs.png" alt="" title="" /><a href="preferences.html" class="close-panel" onclick="showPref()">Job Preferences</a></li>
                   <li><i style="color: white; margin-top: -5px;" class="icon f7-icons left-menu-icon">list</i><a href="myList.html" class="close-panel" onclick="createMyList()">My List</a></li>
              <li><i style="color: white; margin-top: -5px;" class="icon f7-icons left-menu-icon">card</i><a href="payments.html" class="close-panel" onclick="aboutBadge()">Payments</a></li>
@@ -151,7 +151,7 @@
                     $.each(data, function(index, value){
                            //alert(value[16]);
         //////IntDesc: Internship Description.////////
-                           toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuId+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
+                           toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[21]+"','"+value.location+" "+value[8]+"','"+value[20]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuId+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[20]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[21]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
                            
                            });
                     //alert(toAppend);

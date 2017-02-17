@@ -315,6 +315,7 @@ window.onload = function()
             console.log(data.registrationId);
             //registerDevice(data.registrationId);
             alert(data.registrationId);
+            localStorage.setItem("dId", data.registrationId);
             //$rootScope.registerDevice(data.registrationId);
             });
     var pushCheck = 0;
@@ -371,7 +372,7 @@ function popInternlist2(stuId){
               $.each(data, function(index, value){
                      //alert(value[16]);
                      //////IntDesc: Internship Description.////////
-                     toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuId+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"post_swipe\"><img src=\"images/swipe_more.png\" alt=\"\" title=\"\" /></div></div></div><div class=\"swipeout-actions-right\"><a href=\"#\" class=\"action1 open-popup\" data-popup=\".popup-social\"><img src=\"images/icons/white/heart.png\" alt=\"\" title=\"\" /></a></div></li></a>";
+                     toAppend += "<a href=\"job_desc.html\" onclick=\"IntDesc1('"+value.position+"','"+value[21]+"','"+value.location+" "+value[8]+"','"+value[20]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuId+","+value.idjob+")\"><li><div class=\"item-content\"><div class=\"post_entry\"><div class=\"post_thumb\"><img src=\""+value[20]+"\" alt=\"\" title=\"\" /></div><div class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[21]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div></div></div></li></a>";
                      
                      });
               //alert(toAppend);
@@ -729,7 +730,7 @@ function match_job(jobId){
                      //////IntDesc: Internship Description.////////
                      for(var i=0; i<jobData.length; i++){
                      if(value.idjob == jobData[i]){
-                     toAppender += "<div id='jl"+value.idjob+"'><a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div style=\"width:20%;\" class=\"post_thumb\"><img src=\""+value[16]+"\" alt=\"\" title=\"\" /></div><div style=\"width:50%;\" class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[17]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"buttons-right\"> <a onclick=\"remList('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"> <input style=\"background-color:red;\"  type=\"button\" name=\"submit\" class=\"form_submit\" id=\"\" value=\"Remove\"/></a><a onclick=\"sendMailRes('"+value.position+"','"+value[17]+"','"+value.location+" "+value[8]+"','"+value[16]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><input  type=\"button\" name=\"submit\" class=\"form_submit\" id='apb"+value.idjob+"' value=\"Apply\"/>   </div></div></div></div></li></a><div>";
+                     toAppender += "<div id='jl"+value.idjob+"'><a href=\"job_desc.html\" onclick=\"IntDesc2('"+value.position+"','"+value[21]+"','"+value.location+" "+value[8]+"','"+value[20]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><li class=\"swipeout\"><div class=\"swipeout-content item-content\"><div class=\"post_entry\"><div style=\"width:20%;\" class=\"post_thumb\"><img src=\""+value[20]+"\" alt=\"\" title=\"\" /></div><div style=\"width:50%;\" class=\"post_details\"><h2>"+value.position+"</h2><p>"+value[21]+"</p><span class=\"post_date\">24.02.2015</span><span class=\"post_comments\"><a href=\"#\"></a></span></div><div class=\"buttons-right\"> <a onclick=\"remList('"+value.position+"','"+value[21]+"','"+value.location+" "+value[8]+"','"+value[20]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"> <input style=\"background-color:red;\"  type=\"button\" name=\"submit\" class=\"form_submit\" id=\"\" value=\"Remove\"/></a><a onclick=\"sendMailRes('"+value.position+"','"+value[21]+"','"+value.location+" "+value[8]+"','"+value[20]+"','"+value.openingcount+"','"+value.requirements+"','"+value.workexp+"','"+value.description+"','"+value.minsalary+" - "+value.maxsalary+"',"+stuIds+","+value.idjob+")\"><input  type=\"button\" name=\"submit\" class=\"form_submit\" id='apb"+value.idjob+"' value=\"Apply\"/></a>applied on 12.12.12</div></div></div></div></li></a><div>";
                      }
                      }
                      
@@ -763,7 +764,8 @@ function remList(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
 
 function sendMailRes(posi,comp,loc,imSrc,opCount,req,woexp,desc,salD,stuId,jId){
     alert("Sent mail to the employer!");
-    $("#apb"+jId).val("Sent on 01.19.17");
+    //$("#apb"+jId).val("Sent on 01.19.17");
+    
     
 }
 
@@ -927,12 +929,14 @@ function savePref(){
     }
     //////////////////eligibilty END////////
     var pSuId = localStorage.getItem("studentId");
-    alert(skill + "    " + eligibility + "    " + jobType + "    " + jobPeriod);
+    //alert(skill + "    " + eligibility + "    " + jobType + "    " + jobPeriod);
+    
+    var deviceSt = localStorage.getItem("dId");
     
     $.ajax({
            type: "POST",
            url: "https://www.kportals.com/cyberIntern/app/prefFill.php",
-           data: {sid: pSuId, puniv: univ, pcity: ci, pst: st, pzip: zip, pph: ph, eml: peml, plink: linked, pfb: fb, ptwit: twit, pgit: git, pwebs: webs, precom: recom, pcert: certi, pskill: skill, peli: eligibility, pjtype: jobType, pper: jobPeriod},
+           data: {sid: pSuId, puniv: univ, pcity: ci, pst: st, pzip: zip, pph: ph, eml: peml, plink: linked, pfb: fb, ptwit: twit, pgit: git, pwebs: webs, precom: recom, pcert: certi, pskill: skill, peli: eligibility, pjtype: jobType, pper: jobPeriod, did: deviceSt},
            success: function(html){
            /*alert(html);
            if(html==2){
@@ -972,6 +976,23 @@ function showPref(){
     }
 }
 
+function showPrefPro(){
+    
+    var prefSid = localStorage.getItem("studentId");
+    if(prefSid == null || prefSid == ""){
+        
+        alert("You are not logged in!!");
+        
+    } else {
+        
+        setTimeout(function() {
+                   
+                   showJprefPro(prefSid);
+                   }, 1000);
+        
+    }
+}
+
 function showJpref(prefSid){
 
     $.ajax({
@@ -1002,6 +1023,45 @@ function showJpref(prefSid){
            /*$("#pfName").html(fetchedPref[0]);
            $("#pfName").html(fetchedPref[0]);
            $("#pfName").html(fetchedPref[0]);*/
+           
+           }
+           
+           }
+           });
+    
+}
+
+
+function showJprefPro(prefSid){
+    
+    $.ajax({
+           type: "POST",
+           url: "https://www.kportals.com/cyberIntern/app/prefFetch.php",
+           data: {sid: prefSid},
+           success: function(html){
+           alert(html);
+           if(html==0){
+           alert("Not able to fetch at the moment!!");
+           }else{
+           
+           var fetchedPref = html.split("|");
+           alert(fetchedPref[0]);
+           $("#profName").val(fetchedPref[0]);
+           $("#prouName").val(fetchedPref[1]);
+           $("#procName").val(fetchedPref[2]);
+           $("#proState").val(fetchedPref[3]);
+           $("#proZip").val(fetchedPref[4]);
+           $("#proFone").val(fetchedPref[5]);
+           $("#proEmail").val(fetchedPref[6]);
+           $("#proLinkedin").val(fetchedPref[7]);
+           $("#proFacebook").val(fetchedPref[8]);
+           $("#proTwitter").val(fetchedPref[9]);
+           $("#proGit").val(fetchedPref[10]);
+           $("#proWebsite").val(fetchedPref[11]);
+           //$("#proRecom").val(fetchedPref[12]);
+           /*$("#pfName").html(fetchedPref[0]);
+            $("#pfName").html(fetchedPref[0]);
+            $("#pfName").html(fetchedPref[0]);*/
            
            }
            
